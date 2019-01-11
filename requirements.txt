@@ -1,0 +1,3 @@
+allennlp
+git+git://github.com/sheffieldnlp/fever-scorer@master
+git+git://github.com/j6mes/fever-allennlp-reader@master
