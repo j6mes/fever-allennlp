@@ -13,7 +13,7 @@ actual = []
 
 with open(args.predicted_labels,"r") as predictions_file:
     for line in predictions_file:
-        predicted_labels.append(json.loads(line)["predicted"])
+        predicted_labels.append(json.loads(line)["predicted_label"])
 
 
 with open(args.predicted_evidence,"r") as predictions_file:
