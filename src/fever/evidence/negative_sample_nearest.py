@@ -13,7 +13,6 @@ def process(ranker, query, k=1):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--database', type=str)
     parser.add_argument('--in-file', type=str)
     parser.add_argument('--out-file', type=str)
     parser.add_argument('--model', type=str)

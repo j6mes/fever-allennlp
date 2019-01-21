@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 
 
-docdb = FEVERDocumentDatabase(args.db_path)
+docdb = FEVERDocumentDatabase(args.database)
 
 idx = docdb.get_non_empty_doc_ids()
 
