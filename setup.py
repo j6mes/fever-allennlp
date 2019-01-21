@@ -20,9 +20,10 @@ setup(
     license=license,
     python_requires='>=3.6',
     package_dir={'fever': 'src/fever',
-                 'fever.submission': 'src/fever/submission'},
+                 'fever.submission': 'src/fever/submission',
+                 'fever.evidence':'src/fever/evidence'},
     packages=['fever',
-              'fever.submission'
+              'fever.submission',
               'fever.evidence'
               ],
     install_requires=install,
