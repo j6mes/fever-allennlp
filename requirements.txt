@@ -1,3 +1,4 @@
 allennlp
 fever-scorer
 fever-allennlp-reader
+fever-drqa
