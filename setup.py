@@ -11,7 +11,7 @@ depends = [req.replace("git+git://", "git+http://") for req in reqs if req.start
 
 setup(
     name='fever-allennlp',
-    version='0.1.7',
+    version='0.1.8',
     author='James Thorne',
     author_email='james@jamesthorne.co.uk',
     url='https://jamesthorne.co.uk',
@@ -21,10 +21,12 @@ setup(
     python_requires='>=3.6',
     package_dir={'fever': 'src/fever',
                  'fever.submission': 'src/fever/submission',
-                 'fever.evidence':'src/fever/evidence'},
+                 'fever.evidence':'src/fever/evidence',
+                 'fever.evidence.retrieval_methods':"src/fever/evidence/retrieval_methods"},
     packages=['fever',
               'fever.submission',
-              'fever.evidence'
+              'fever.evidence',
+              'fever.evidence.retrieval_methods'
               ],
     install_requires=install,
     dependency_links=depends,
