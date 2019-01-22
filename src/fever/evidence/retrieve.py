@@ -8,13 +8,7 @@ from fever.evidence.retrieval_methods.top_docs import TopNDocsTopNSents
 
 
 def process_line(method,line, args):
-    if args.nei and "label" in line and line["label"].lower() != "NOT ENOUGH INFO".lower():
-        return line
-
-    if "entities" in line:
-        sents = method.get_sentences_for_claim(line["claim"],line["entities"])
-    else:
-        sents = method.get_sentences_for_claim(line["claim"])
+    sents = method.get_sentences_for_claim(line["claim"])
     pages = list(set(map(lambda sent:sent[0],sents)))
     line["predicted_pages"] = pages
     line["predicted_sentences"] = sents
