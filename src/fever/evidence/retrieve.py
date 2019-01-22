@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    database = FEVERDocumentDatabase(args.db)
+    database = FEVERDocumentDatabase(args.database)
     method = TopNDocsTopNSents(database, args.index, args.max_page, args.max_sent)
 
     processed = dict()
