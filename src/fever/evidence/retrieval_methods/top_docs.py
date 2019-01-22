@@ -42,7 +42,7 @@ class TopNDocsTopNSents(RetrievalMethod):
         for page in pages:
             lines = self.database.get_doc_lines(page)
             lines = [line.split("\t")[1] if len(line.split("\t")[1]) > 1 else "" for line in
-                     lines.split("\n")]
+                     lines]
 
             p_lines.extend(zip(lines, [page] * len(lines), range(len(lines))))
 
