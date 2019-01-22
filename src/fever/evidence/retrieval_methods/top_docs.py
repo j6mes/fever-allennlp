@@ -40,7 +40,7 @@ class TopNDocsTopNSents(RetrievalMethod):
         pages = [p[0] for p in sorted_p[:self.n_docs]]
         p_lines = []
         for page in pages:
-            lines = self.db.get_doc_lines(page)
+            lines = self.database.get_doc_lines(page)
             lines = [line.split("\t")[1] if len(line.split("\t")[1]) > 1 else "" for line in
                      lines.split("\n")]
 
