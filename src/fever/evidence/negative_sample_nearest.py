@@ -15,7 +15,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--in-file', type=str)
     parser.add_argument('--out-file', type=str)
-    parser.add_argument('--model', type=str)
+    parser.add_argument('--index', type=str)
     parser.add_argument('--count',type=int, default=1)
     args = parser.parse_args()
 
