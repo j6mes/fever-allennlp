@@ -20,7 +20,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     k = args.count
-    ranker = retriever.get_class('tfidf')(tfidf_path=args.model)
+    ranker = retriever.get_class('tfidf')(tfidf_path=args.index)
 
     with open(args.in_file) as f:
         with open(args.out_file,"w+") as f2:
