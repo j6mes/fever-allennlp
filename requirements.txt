@@ -1,3 +1,4 @@
+numpy>=1.15
 allennlp
 fever-scorer
 fever-allennlp-reader
