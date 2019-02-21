@@ -28,7 +28,7 @@ with open(args.predicted_evidence,"r") as predictions_file:
             for evidence_group in line["evidence"]:
                 all_evidence.extend(evidence_group)
 
-            predicted_evidence.append(set([(evidence[2],evidence[3]) for evidence in all_evidence]))
+            predicted_evidence.append(list(set([(evidence[2],evidence[3]) for evidence in all_evidence])))
 
 
 predictions = []
