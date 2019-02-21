@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.6"
+before_install:
+  - . version.sh
+install:
+  - python setup.py install
+script:
+  - echo "no script"
+before_deploy:
+  - python setup.py sdist
+deploy:
+  provider: pypi
+  user: $DEPLOY_PYPI_USER
+  password: $DEPLOY_PYPI_PASS
+  skip_existing: true
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH == release-*
