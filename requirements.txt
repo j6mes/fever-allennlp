@@ -1,4 +1,5 @@
 numpy>=1.15
+regex==2018.01.10
 allennlp
 fever-scorer
 fever-allennlp-reader
