@@ -4,7 +4,6 @@ python:
 before_install:
   - . version.sh
 install:
-  - pip install -r requirements.txt
   - python setup.py install
 script:
   - echo "no script"
