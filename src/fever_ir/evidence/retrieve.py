@@ -1,10 +1,10 @@
 import argparse
 import json
 from multiprocessing.pool import ThreadPool
-from fever.reader import FEVERDocumentDatabase
+from fever.reader.document_database import FEVERDocumentDatabase
 from tqdm import tqdm
 
-from fever.evidence.retrieval_methods.top_docs import TopNDocsTopNSents
+from fever_ir.evidence.retrieval_methods.top_docs import TopNDocsTopNSents
 
 
 def process_line(method,line, args):

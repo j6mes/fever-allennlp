@@ -1,7 +1,7 @@
 import argparse
 import json
 import random
-from fever.reader import FEVERDocumentDatabase
+from fever.reader.document_database import FEVERDocumentDatabase
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 import math
 
-from fever.evidence.retrieval_methods.retrieval_method import RetrievalMethod
+from fever_ir.evidence.retrieval_methods.retrieval_method import RetrievalMethod
 from drqa import retriever
 from drqascripts.retriever.build_tfidf_lines import OnlineTfidfDocRanker
 
