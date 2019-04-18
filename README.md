@@ -41,7 +41,7 @@ export PYTHONPATH=src
 export FEVER_ROOT=$(pwd)
 mkdir -p work
 export WORK_DIR=work
-python -m fever.evidence.retrieve \
+python -m fever_ir.evidence.retrieve \
     --database $FEVER_ROOT/data/fever/fever.db \
     --index $FEVER_ROOT/data/index/fever-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz \
     --in-file $FEVER_ROOT/data/fever-data/dev.jsonl \
@@ -70,13 +70,41 @@ python -m allennlp.run predict \
 ```
 
 ### Scoring
+Dev set can be scored locally with the FEVER scorer
+
+```bash
+python -m fever_ir.submission.score \
+    --predicted_labels $WORK_DIR/$MODEL_NAME.predictions.jsonl \
+    --predicted_evidence $WORK_DIR/dev.sentences.p5.s5.jsonl
+```
+
+Test set can be uploaded to the scoring server for scoring - the submission can be prepared with the following script
+
+```bash
+python -m fever_ir.submission.prepare \
+    --predicted_labels $WORK_DIR/$MODEL_NAME.predictions.jsonl \
+    --predicted_evidence $WORK_DIR/test.sentences.p5.s5.jsonl
+    --out_file $WORK_DIR/submission.jsonl
+```
+
 
 
 ## Train new Models
 
+### Sample Evidence for Training
+
+```bash
+export PYTHONPATH=src
+export FEVER_ROOT=$(pwd)
+mkdir -p work
+export WORK_DIR=work
+python -m fever_ir.evidence.retrieve \
+    --index $FEVER_ROOT/data/index/fever-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz \
+    --in-file $FEVER_ROOT/data/fever-data/dev.jsonl \
+    --out-file $FEVER_ROOT/data/fever/train.ns.pages.p1
+```
 
 ### Train Models
-
 Decomposable Attention Model
 ```python
 allennlp train configs/decomposable_attention.json -s log/fever_da --include-package fever
@@ -86,7 +114,6 @@ ESIM
 ```python
 allennlp train configs/esim_elmo.json -s log/fever_esim --include-package fever
 ```
-
 
 ESIM+ELMo
 ```python
