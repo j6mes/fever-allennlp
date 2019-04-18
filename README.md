@@ -30,8 +30,40 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
+## Manual data install
+If using the docker verison of this repo. The data will be mounted in a data folder. Otherwise it must be manually set up with the following scripts:
+
+Download GloVe
+```bash
+mkdir -p data
+wget http://nlp.stanford.edu/data/wordvecs/glove.6B.zip
+unzip glove.6B.zip -d data/glove
+gzip data/glove/*.txt
+```
+
+Download Wiki
+```bash
+mkdir -p data
+mkdir -p data/index
+mkdir -p data/fever
+
+wget -O data/index/fever-tfidf-ngram=2-hash=16777216-tokenizer=simple.npz https://s3-eu-west-1.amazonaws.com/fever.public/wiki_index/fever-tfidf-ngram%3D2-hash%3D16777216-tokenizer%3Dsimple.npz
+wget -O data/fever/fever.db https://s3-eu-west-1.amazonaws.com/fever.public/wiki_index/fever.db
+```
+
+Download Data
+```bash
+mkdir -p data
+mkdir -p data/fever-data
+wget -O data/fever-data/train.jsonl https://s3-eu-west-1.amazonaws.com/fever.public/train.jsonl
+wget -O data/fever-data/dev.jsonl https://s3-eu-west-1.amazonaws.com/fever.public/shared_task_dev.jsonl
+wget -O data/fever-data/test.jsonl https://s3-eu-west-1.amazonaws.com/fever.public/shared_task_test.jsonl
+```
+
+
+
 ## Running with Pretrained Models
-The pretrained models can be used with the following scripts: 
+The pretrained models can be used with the following scripts:
 
 ### Information Retreival
 Find the 5 nearest sentences from the 5 nearest documents using the pre-computed TF-IDF index. The documents are in the database file `fever.db`.
