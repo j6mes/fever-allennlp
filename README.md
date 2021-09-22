@@ -1,6 +1,6 @@
 # A Pure AllenNLP Implementation of FEVER Baseline Models
 
-This is an implenetation of the FEVER Baseline system. This is a heterogeneous system with two components: for a short sentence (called a claim) this system firstly finds evidence (information rertrieval) and then performs an assessment whether the claim is Supported or Refuted given the evidence (natual language inference).
+This is an implementation of the FEVER Baseline system. This is a heterogeneous system with two components: for a short sentence (called a claim) this system firstly finds evidence (information rertrieval) and then performs an assessment whether the claim is Supported or Refuted given the evidence (natual language inference).
 
 ## Model Description
 The system contains three components: an end-to-end evidence retrieval system, the NLI classifier and a training data sampling script to generate new instances to train the NLI model.
