@@ -83,7 +83,7 @@ python -m fever_ir.evidence.retrieve \
 ```
 
 ### Natural Language Inference
-There are three available model files: `https://jamesthorne.co.uk/fever/fever-esim-elmo.tar.gz`, `https://jamesthorne.co.uk/fever/fever-esim.tar.gz` and `https://jamesthorne.co.uk/fever/fever-da.tar.gz`. If you are using a pretrained model, change `$MODEL_FILE` and `$MODEL_NAME` appropriately.
+There are two available model files: `https://jamesthorne.co.uk/content/files/fever-esim.tar.gz` and `https://jamesthorne.co.uk/content/files/fever-da.tar.gz`. If you are using a pretrained model, change `$MODEL_FILE` and `$MODEL_NAME` appropriately.
 
 ```bash
 export CUDA_DEVICE=-1 #Set this to appropriate value if using a GPU. -1 for CPU
@@ -92,7 +92,7 @@ export FEVER_ROOT=$(pwd)
 mkdir -p work
 export WORK_DIR=work
 export MODEL_NAME=fever-esim-elmo
-export MODEL_FILE=https://jamesthorne.co.uk/fever/$MODEL_NAME.tar.gz
+export MODEL_FILE=https://jamesthorne.co.uk/content/files/$MODEL_NAME.tar.gz
 python -m allennlp.run predict \
     --output-file $WORK_DIR/$MODEL_NAME.predictions.jsonl \
     --cuda-device $CUDA_DEVICE \
